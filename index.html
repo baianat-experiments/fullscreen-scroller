@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="dist/css/focus.css">
+</head>
+<body>
+  <style media="screen">
+    .red   {background-color: #EA4F52;}
+    .green {background-color: #62CAAA;}
+    .blue  {background-color: #56C6F4;}
+    .dark  {background-color: #444444;}
+  </style>
+
+  <div class="focus">
+    <div class="section is-active red">
+      <div class="section-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, magnam praesentium itaque cum? Quibusdam nobis voluptatum quaerat aliquid, maxime dignissimos.</p>
+      </div>
+    </div>
+    <div class="section dark">
+      <div class="section-content">
+        <img src="dist/img/image-01.jpg" alt="" width="400px">
+      </div>
+    </div>
+    <div class="section">
+      <div class="slide green"> Slide 1 </div>
+      <div class="slide blue"> Slide 2 </div>
+      <div class="slide red"> Slide 3 </div>
+      <div class="slide dark"> Slide 4 </div>
+    </div>
+    <div class="section red">
+      <div class="slide"> Slide 1 </div>
+      <div class="slide"> Slide 2 </div>
+    </div>
+    <div class="section blue">
+      <div class="section-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, magnam praesentium itaque cum? Quibusdam nobis voluptatum quaerat aliquid, maxime dignissimos.</p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="dist/js/focus.js">
+
+  </script>
+  <script>
+    new Focus('.focus');
+  </script>
+</body>
+</html>
