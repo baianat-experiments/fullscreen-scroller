@@ -66,7 +66,7 @@ gulp.task('production:scripts', () => {
     gulp.src('./src/**/*.js')
         .pipe(rollup({
             rollup: require('rollup'),
-            entry: './src/js/script.js',
+            entry: './src/js/focus.js',
             format: 'umd',
             moduleName: 'Focus'
         }))
@@ -106,7 +106,7 @@ gulp.task('production:scripts', () => {
   */
 gulp.task('browser-sync', function () {
     browserSync.init({
-       proxy: "baianat.dev/focus/index.html"
+       proxy: "focus.dev/index.html"
    });
 })
 

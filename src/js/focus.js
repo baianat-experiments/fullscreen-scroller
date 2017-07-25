@@ -1,4 +1,4 @@
-import {select, getAverage, getArray} from './utilities';
+import { select, getAverage, getArray } from './utilities';
 
 
 class Focus {
@@ -11,7 +11,9 @@ class Focus {
   init() {
     this.sections        = Array.from(this.el.querySelectorAll('.section'));
     this.currentSection  = 0;
+    this.slides          = this.getSlides();
     this.slidesCount     = this.getSlidesCount();
+    this.activeSlide     = '';
     this.currentSlides   = getArray(this.sections.length, 0);
     this.isSliding       = false;
     this.scrollingValues = [];
@@ -20,6 +22,7 @@ class Focus {
     this.initKeyboard();
     this.initScroll();
     this.goToSection(0);
+    this.goToSlide(this.slides[0]);
   }
 
   initDots() {
@@ -140,6 +143,9 @@ class Focus {
   goToSlide(index) {
     const currentSlideCount = this.slidesCount[this.currentSection];
     if (currentSlideCount === 0) return;
+    if (this.activeSlide) this.activeSlide.classList.remove('is-active');
+    this.activeSlide = this.slides[this.currentSection][index];
+    this.activeSlide.classList.add('is-active');
     this.currentSlides[this.currentSection] = index;
     this.sections[this.currentSection].style.marginLeft = `-${index * 100}%`;
   }
@@ -147,6 +153,12 @@ class Focus {
   getSlidesCount() {
     return this.sections.map((section) => {
       return Array.from(section.querySelectorAll('.slide')).length;
+    });
+  }
+
+  getSlides() {
+    return this.sections.map((section) => {
+      return Array.from(section.querySelectorAll('.slide'));
     });
   }
 }

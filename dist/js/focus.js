@@ -38,7 +38,9 @@ var Focus = function Focus(selector, settings) {
 Focus.prototype.init = function init () {
   this.sections      = Array.from(this.el.querySelectorAll('.section'));
   this.currentSection= 0;
+  this.slides        = this.getSlides();
   this.slidesCount   = this.getSlidesCount();
+  this.activeSlide   = '';
   this.currentSlides = getArray(this.sections.length, 0);
   this.isSliding     = false;
   this.scrollingValues = [];
@@ -47,6 +49,7 @@ Focus.prototype.init = function init () {
   this.initKeyboard();
   this.initScroll();
   this.goToSection(0);
+  this.goToSlide(this.slides[0]);
 };
 
 Focus.prototype.initDots = function initDots () {
@@ -173,6 +176,9 @@ Focus.prototype.slideLeft = function slideLeft () {
 Focus.prototype.goToSlide = function goToSlide (index) {
   var currentSlideCount = this.slidesCount[this.currentSection];
   if (currentSlideCount === 0) return;
+  if (this.activeSlide) this.activeSlide.classList.remove('is-active');
+  this.activeSlide = this.slides[this.currentSection][index];
+  this.activeSlide.classList.add('is-active');
   this.currentSlides[this.currentSection] = index;
   this.sections[this.currentSection].style.marginLeft = "-" + (index * 100) + "%";
 };
@@ -180,6 +186,12 @@ Focus.prototype.goToSlide = function goToSlide (index) {
 Focus.prototype.getSlidesCount = function getSlidesCount () {
   return this.sections.map(function (section) {
     return Array.from(section.querySelectorAll('.slide')).length;
+  });
+};
+
+Focus.prototype.getSlides = function getSlides () {
+  return this.sections.map(function (section) {
+    return Array.from(section.querySelectorAll('.slide'));
   });
 };
 
