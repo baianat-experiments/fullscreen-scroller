@@ -1,11 +1,24 @@
-# focus
-fullscreen scrolling website
+# Focus
+
+Full-screen scrolling website
 
 [examples](https://baianat.github.io/focus/)
 
+## Getting started
 
-## How to use
-#### include necessary files
+### Install
+
+First step is to install it using yarn or npm
+
+```bash
+npm install @baianat/focus
+
+# or use yarn
+yarn add @baianat/focus
+```
+
+### Include necessary files
+
 ``` html
 <head>
   <link rel="stylesheet" href="dist/css/focus.css">
@@ -16,11 +29,12 @@ fullscreen scrolling website
 </body>
 ```
 
-#### HTML markup
-you add wrapper div with class ``focus`` then add section(s) you want with class ``section``
-if you want to add right & left slides you can add it inside section dev with class ``slide``
+### HTML Layout
 
-``` html
+You add a wrapper div with class `focus`, then add the section(s) you want with class `section`
+If you want to add right & left slides you can add it inside the section dev with class `slide`
+
+```html
 <div class="focus">
   <div class="section is-active">
     <div class="section-content">
@@ -44,9 +58,10 @@ if you want to add right & left slides you can add it inside section dev with cl
 </div>
 ```
 
-#### Create new slider
-to create focus element you will need to use js
-``` javascript
+### Create a new slider
+To create a Focus element, you will need to create a new Focus instance.
+
+```javaScript
   const myFoucs = new Focus('.focus');
 ```
 
@@ -54,4 +69,4 @@ to create focus element you will need to use js
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2017 [Baianat](http://baianat.com)
+Copyright (c) 2018 [Baianat](http://baianat.com)
